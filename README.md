@@ -2,7 +2,7 @@
 
 My starter project for i18n blog by modifying [eleventy-i18n](https://github.com/madrilene/eleventy-i18n) and supports Cht and Japanese.
 
-This site will be continuously updated for the style (.css) and articles though it's a little shabby currently:sweat_smile:.
+This site will be continuously updated for the style (.css) and articles though it's a little shabby currently😅.
 
 ## Link
 
