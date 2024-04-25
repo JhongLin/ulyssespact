@@ -1,0 +1,24 @@
+{
+  "name": "eleventy-i18n",
+  "version": "1.0.1",
+  "description": "Minimal starter for localized content, using Eleventy's own Internationalization (I18n) plugin",
+  "license": "ISC",
+  "author": {
+    "name": "Lene Saile",
+    "url": "https://www.lenesaile.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/11ty/eleventy-i18n.git"
+  },
+  "engines": {
+    "node": ">=16.x.x"
+  },
+  "scripts": {
+    "start": "eleventy --serve --watch",
+    "build": "eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
