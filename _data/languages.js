@@ -1,30 +1,16 @@
 module.exports = {
-    en: {
+    zh: {
         dir: '',
-        availableText: 'This page is also available in:',
-        skipText: 'Jump to main content',
-        ariaPrimary: 'Primary',
-        ariaLang: 'Change language'
+        availableText: '這一頁也有支援其他語言：',
+        skipText: '跳至主內容',
+        ariaPrimary: '主要',
+        ariaLang: '繁體中文'
     },
-    de: {
+    ja: {
         dir: '',
-        availableText: 'Diese Seite ist auch verfügbar in:',
-        skipText: 'Zum Hauptinhalt springen',
-        ariaPrimary: 'Primär',
-        ariaLang: 'Sprache ändern'
-    },
-    es: {
-        dir: '',
-        availableText: 'Esta página también está disponible en:',
-        skipText: 'Saltar al contenido principal',
-        ariaPrimary: 'Primario',
-        ariaLang: 'Cambiar idioma'
-    },
-    fa: {
-        dir: 'rtl',
-        availableText: 'زبان های دیگری برای این صفحه فراهم است از جمله:',
-        skipText: 'پرش به محتوای اصلی',
-        ariaPrimary: 'اصلی',
-        ariaLang: 'تغییر زبان'
+        availableText: 'このページは他の言語でも書かれます：',
+        skipText: 'メーン内容に戻る',
+        ariaPrimary: 'メーン',
+        ariaLang: '日本語'
     }
 };

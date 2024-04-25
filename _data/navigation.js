@@ -1,42 +1,22 @@
 module.exports = {
-    en: [
+    zh: [
         {
-            text: 'Home',
-            url: '/en/'
+            text: '主頁',
+            url: '/zh/'
         },
         {
-            text: 'About me',
-            url: '/en/about-me/'
+            text: '關於我',
+            url: '/zh/about/'
         }
     ],
-    es: [
+    ja: [
         {
-            text: 'Inicio',
-            url: '/es/'
+            text: 'ホーム',
+            url: '/ja/'
         },
         {
-            text: 'Sobre mí',
-            url: '/es/sobre-mi/'
-        }
-    ],
-    de: [
-        {
-            text: 'Startseite',
-            url: '/de/'
-        },
-        {
-            text: 'Über mich',
-            url: '/de/ueber-mich/'
-        }
-    ],
-    fa: [
-        {
-            text: 'خانه',
-            url: '/fa/'
-        },
-        {
-            text: 'درباره‌ی من',
-            url: '/fa/drbarh-y-mn/'
+            text: 'プロフィール',
+            url: '/ja/about/'
         }
     ]
 };
