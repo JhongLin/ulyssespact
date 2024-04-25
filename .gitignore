@@ -2,12 +2,9 @@
 node_modules
 
 # generated files
-dist
+_site
 
 # cache
 .cache
-
-# secret data
-.env
 
 package-lock.json

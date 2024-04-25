@@ -15,8 +15,8 @@
     "node": ">=16.x.x"
   },
   "scripts": {
-    "start": "eleventy --serve --watch",
-    "build": "eleventy"
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
   },
   "dependencies": {
     "@11ty/eleventy": "^2.0.1"

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>{{ title }}</title>
+    <link rel="icon" type="image/x-icon" href="https://static-resource.jhongwashere.com/jhong-pact-favicon-01.ico">
 
     <!-- prettier-ignore -->
     <style>
@@ -19,40 +20,40 @@
     <link
       rel="alternate"
       hreflang="{{ page.lang }}"
-      href="{{ meta.url }}{{ page.url }}"
+      href="{{ metadata.url }}{{ page.url }}"
     />
 
     {% for link in page.url | locale_links %}
     <link
       rel="alternate"
       hreflang="{{ link.lang }}"
-      href="{{ meta.url }}{{ link.url }}"
+      href="{{ metadata.url }}{{ link.url }}"
     />
     {% endfor %}
 
     <link
       rel="alternate"
       hreflang="x-default"
-      href="{{ meta.url }}{{ page.url | locale_url('en') }}"
+      href="{{ metadata.url }}{{ page.url | locale_url('en') }}"
     />
 
-    <link rel="canonical" href="{{ meta.url }}{{ page.url }}" />
+    <link rel="canonical" href="{{ metadata.url }}{{ page.url }}" />
     <meta
       name="description"
       content="{% if description %}
     {{ description }}
     {% else %}
-    {{ meta.siteDescription }}
+    {{ metadata.siteDescription }}
     {% endif %}"
     />
     <meta name="generator" content="{{ eleventy.generator }}" />
-    <meta property="og:site_name" content="{{ meta.siteName }}" />
-    <meta property="og:title" content="{{ title }} | {{ meta.siteName }}" />
+    <meta property="og:site_name" content="{{ metadata.siteName }}" />
+    <meta property="og:title" content="{{ title }} | {{ metadata.siteName }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="{{ description or meta.siteDescription }}" />
-    <meta property="og:url" content="{{ meta.url }}{{ page.url }}" />
+    <meta property="og:description" content="{{ description or metadata.siteDescription }}" />
+    <meta property="og:url" content="{{ metadata.url }}{{ page.url }}" />
     <meta property="og:locale" content="{{ page.lang }}" />
-    <meta property="og:image" content="{{ meta.url }}{{ meta.ogImage }}" />
+    <meta property="og:image" content="{{ metadata.ogImage }}" />
   </head>
 
   <body>

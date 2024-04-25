@@ -6,16 +6,12 @@ module.exports = function (eleventyConfig) {
         errorMode: 'allow-fallback' // Opting out of "strict"
     });
 
-    eleventyConfig.addPassthroughCopy('src/favicon.ico');
-
-    ['src/favicon.ico', 'src/opengraph.jpg'].forEach(item =>
-        eleventyConfig.addPassthroughCopy(item)
-    );
-
     return {
         dir: {
             input: 'src',
-            output: 'dist'
+            includes: "../_includes",
+            data: "../_data",
+            output: '_site'
         },
         markdownTemplateEngine: 'njk',
         htmlTemplateEngine: 'njk'
