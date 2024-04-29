@@ -1,0 +1,45 @@
+---
+title: ""
+description: '中文主頁面'
+numberOfLatestFeedsToShow: 1
+numberOfLatestPostsToShow: 3
+---
+<!-- Beginning Block for Current State -->
+<!-- Determine how many feeds will show on the main page -->
+{% set feedsCount = collections.zh_feeds | length %}
+<!-- min(postsCount, numberOfLatestPostsToShow) -->
+{% set latestFeedsCount = feedsCount | min(numberOfLatestFeedsToShow) %}
+<h1>嘟囔喃喃</h1>
+
+<!-- Show a limited postlist -->
+{% set feedlist = collections.zh_feeds | head(-1 * numberOfLatestFeedsToShow) %}
+<!-- Passing `feedlistCounter` to feed.njk for the number of counter-down from -->
+{% set feedlistCounter = feedsCount %}
+{% include "feedlist.njk" %}
+
+<!-- Show the quantity of now showing feeds -->
+{% set moreFeeds = feedsCount - numberOfLatestFeedsToShow %}
+{% if moreFeeds > 0 %}
+<p>其他總共還有 {{ moreFeeds }} 個動態發布在<a href="/zh/feeds/">這裡</a>。</p>
+{% endif %}
+
+<hr>
+<!-- Next Block for Posts -->
+<!-- Determine how many posts will show on the main page -->
+{% set postsCount = collections.zh_posts | length %}
+<!-- min(postsCount, numberOfLatestPostsToShow) -->
+{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
+{# <h1>最近の {{ latestPostsCount }} つの記事</h1> #}
+<h1 style="margin-top: 20px">最近的貼文</h1>
+
+<!-- Show a limited postlist -->
+{% set postlist = collections.zh_posts | head(-1 * numberOfLatestPostsToShow) %}
+<!-- Passing `postlistCounter` to postlist.njk for the number of counter-down from -->
+{% set postlistCounter = postsCount %}
+{% include "postlist.njk" %}
+
+<!-- Show the quantity of now showing articles -->
+{% set morePosts = postsCount - numberOfLatestPostsToShow %}
+{% if morePosts > 0 %}
+<p>其他總共還有 {{ morePosts }} 個貼文發布在<a href="/zh/posts/">這裡</a>。</p>
+{% endif %}

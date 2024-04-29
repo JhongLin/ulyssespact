@@ -1,0 +1,53 @@
+---
+pagination:
+    data: collections.ja_feeds
+    size: 3
+    alias: feedlist
+    reverse: true
+permalink: /ja/feeds/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
+---
+<h1>ぶつぶつ呟き</h1>
+
+{%- css %}{% include "public/css/feedlist.css" %}{% endcss %}
+{%- css %}{% include "public/css/paginated_navigation.css" %}{% endcss %}
+
+<section reversed class="feedlist">
+{% for feed in feedlist %}
+	<div class="message-box">
+		<time class="feedlist-date" datetime="{{ feed.date | htmlDateString }}">{{ feed.date | htmlDateString }}</time>
+		<article class="feedlist-item">
+			{{ feed.content | safe }}
+		</article>
+	</div>
+{% endfor %}
+</section>
+
+<!-- The Navigation of Pagination -->
+{% set currentPageNumber = pagination.pageNumber + 1 %}
+{% set largestPageNumber = pagination.hrefs.length %}
+<p class="center-text">
+    {# from 1, ..., n-2 to n #}
+    {% if currentPageNumber  > 3 %}
+        <a class="pagination_nav" href="{{pagination.href.previous}}">1</a>
+        <span>&nbsp;...</span>
+    {% endif %}
+    {% if currentPageNumber  > 2 %}
+        <a class="pagination_nav" href="{{ pagination.hrefs[currentPageNumber - 3] }}">&nbsp;{{ currentPageNumber - 2 }}</a>
+    {% endif %}
+    {% if currentPageNumber  > 1 %}
+        <a class="pagination_nav" href="{{ pagination.hrefs[currentPageNumber - 2] }}">&nbsp;{{ currentPageNumber - 1 }}</a>
+    {% endif %}
+    <a class="pagination_nav current_page" href="{{ pagination.hrefs[currentPageNumber - 1] }}">&nbsp;{{ currentPageNumber }}</a>
+
+    {# from n+1, n+2, ..., and end #}
+    {% if currentPageNumber < largestPageNumber %}
+        <a class="pagination_nav" href="{{ pagination.hrefs[currentPageNumber] }}">&nbsp;{{ currentPageNumber + 1 }}</a>
+    {% endif %}
+    {% if currentPageNumber + 1  < largestPageNumber %}
+        <a class="pagination_nav" href="{{ pagination.hrefs[currentPageNumber + 1] }}">&nbsp;{{ currentPageNumber + 2 }}</a>
+    {% endif %}
+    {% if currentPageNumber + 2  < largestPageNumber %}
+        <span>&nbsp;...</span>
+        <a class="pagination_nav" href="{{ pagination.hrefs[largestPageNumber - 1] }}">&nbsp;{{ largestPageNumber }}</a>
+    {% endif %}
+</p>

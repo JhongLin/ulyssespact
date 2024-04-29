@@ -1,0 +1,13 @@
+{%- css %}{% include "public/css/feedlist.css" %}{% endcss %}
+
+<section reversed class="feedlist">
+{% for feed in feedlist | reverse %}
+	<div class="message-box">
+		<time class="feedlist-date" datetime="{{ feed.date | htmlDateString }}">{{ feed.date | htmlDateString }}</time>
+		<article class="feedlist-item">
+			{{ feed.content | safe }}
+		</article>
+	</div>
+{% endfor %}
+</section>
+

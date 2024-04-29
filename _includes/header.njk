@@ -1,5 +1,5 @@
 {% set activePage = page.url %}
-
+{%- css %}{% include "public/css/header.css" %}{% endcss %}
 <a href="#main" class="skip-link">{{ languages[page.lang].skipText }}</a>
 
 <header>
@@ -15,13 +15,35 @@
           |
           safe
           }}
+          {% if item.url == page.url %} aria-current="page"{% endif %}
           >{{ item.text }}</a
         >
       </li>
       {% endfor %}
-      {# <li>
-        <a href="https://github.com/JhongLin/ulyssespact">GitHub</a>
-      </li> #}
+      <li>
+        {% for link in page.url | locale_links %}
+            <a href="{{ link.url }}" lang="{{ link.lang }}" hreflang="{{ link.lang }}">
+              {% if page.lang == 'ja' %}
+                切換至{{link.label}}模式
+              {% else %}
+                {{link.label}}で表す
+              {% endif %}
+            </a>
+        {% endfor %}
+      </li>
     </ul>
+    <!-- The social media link -->
+    <a href="https://www.linkedin.com/in/jhonglin" target="_blank">
+      <img class="logo" src="https://static-resource.jhongwashere.com/icone-linkedin-ronde-orange.png" alt="LinkedIn" width="25" height="25">
+    </a>
+    <a href="https://github.com/JhongLin" target="_blank">
+        <img class="logo" src="https://static-resource.jhongwashere.com/icone-github-orange.png" alt="GitHub" width="25" height="25">
+    </a>
+    <a href="https://www.youtube.com/@hen-kiang" target="_blank">
+        <img class="logo" src="https://static-resource.jhongwashere.com/youtube-logo-icone-orange.png" alt="YouTube" width="25" height="25">
+    </a>
+    <a href="mailto:qcp87623abc@gmail.com">
+        <img class="logo" src="https://static-resource.jhongwashere.com/icone-gmail-logo-png-orange.png" alt="Email" width="25" height="25">
+    </a>
   </nav>
 </header>
