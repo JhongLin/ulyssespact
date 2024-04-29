@@ -1,0 +1,22 @@
+/* Navigation of Pagination number */
+.center-text {
+    text-align: center;
+}
+
+.pagination_nav {
+    font-size: 1em;
+    padding-left: .5em;
+    padding-right: .5em;
+    margin-left: .5em;
+    margin-right: .5em;
+    font-weight: bold;
+    min-width: 2.25em;
+    height: 2.25em;
+    line-height: 1.5;
+    background-color: #626567;
+    border-radius: 6px;
+}
+
+.current_page {
+    background-color: #5DADE2;
+}

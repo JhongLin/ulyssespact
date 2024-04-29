@@ -1,0 +1,45 @@
+---
+title: ""
+description: '日本語のホームページ'
+numberOfLatestFeedsToShow: 1
+numberOfLatestPostsToShow: 3
+---
+<!-- Beginning Block for Current State -->
+<!-- Determine how many feeds will show on the main page -->
+{% set feedsCount = collections.ja_feeds | length %}
+<!-- min(postsCount, numberOfLatestPostsToShow) -->
+{% set latestFeedsCount = feedsCount | min(numberOfLatestFeedsToShow) %}
+<h1>ぶつぶつ呟き</h1>
+
+<!-- Show a limited postlist -->
+{% set feedlist = collections.ja_feeds | head(-1 * numberOfLatestFeedsToShow) %}
+<!-- Passing `feedlistCounter` to feed.njk for the number of counter-down from -->
+{% set feedlistCounter = feedsCount %}
+{% include "feedlist.njk" %}
+
+<!-- Show the quantity of now showing feeds -->
+{% set moreFeeds = feedsCount - numberOfLatestFeedsToShow %}
+{% if moreFeeds > 0 %}
+<p>あと他の {{ moreFeeds }} つのを含める全部のフィードは<a href="/ja/feeds/">こちら</a>。</p>
+{% endif %}
+
+<hr>
+<!-- Next Block for Posts -->
+<!-- Determine how many posts will show on the main page -->
+{% set postsCount = collections.ja_posts | length %}
+<!-- min(postsCount, numberOfLatestPostsToShow) -->
+{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
+{# <h1>最近の {{ latestPostsCount }} つの記事</h1> #}
+<h1 style="margin-top: 20px">最近の記事</h1>
+
+<!-- Show a limited postlist -->
+{% set postlist = collections.ja_posts | head(-1 * numberOfLatestPostsToShow) %}
+<!-- Passing `postlistCounter` to postlist.njk for the number of counter-down from -->
+{% set postlistCounter = postsCount %}
+{% include "postlist.njk" %}
+
+<!-- Show the quantity of now showing articles -->
+{% set morePosts = postsCount - numberOfLatestPostsToShow %}
+{% if morePosts > 0 %}
+<p>あと他の {{ morePosts }} つのを含める全部の記事は<a href="/ja/posts/">こちら</a>。</p>
+{% endif %}

@@ -1,0 +1,14 @@
+/* Nav */
+a[aria-current="page"] {
+	text-decoration: underline;
+}
+
+.logo {
+	filter: grayscale(100%); /* Make the logo grayscale */
+	transition: filter 0.3s ease; /* Smooth transition */
+	margin-top: .4em;
+}
+
+.logo:hover {
+	filter: none; /* Remove grayscale on hover */
+}

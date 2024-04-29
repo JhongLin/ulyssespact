@@ -1,0 +1,69 @@
+---
+pagination:
+    data: collections.zh_posts
+    size: 3
+    alias: postlist
+    reverse: true
+permalink: /zh/posts/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
+---
+<!-- Next Block for Posts -->
+<!-- Determine how many posts will show on the main page -->
+{% set postsCount = collections.zh_posts | length %}
+<h1 style="margin-top: 20px">最近的貼文</h1>
+
+<!-- Show a limited postlist -->
+
+<!-- Content -->
+{%- css %}{% include "public/css/postlist.css" %}{% endcss %}
+{%- css %}{% include "public/css/paginated_navigation.css" %}{% endcss %}
+{%- css %}.postlist { counter-reset: start-from {{ postsCount + 1 }} }{% endcss %}
+
+<ol reversed class="postlist">
+{% for post in postlist %}
+	<li class="postlist-item">
+		<a href="{{ post.url }}" class="postlist-link">{{ post.data.title }}</a>
+		<p class="postlist-description">{{ post.data.description }}</p>
+		{% if post.data.tags | length > 1 %}
+		<p class="postlist-tags">
+			{% for tag in post.data.tags %}
+				{% if tag != "zh_posts" %}
+					<!--{% if not loop.first %}{% endif %}-->
+					<span class="post-indivisual-tag">{{tag}}</span>
+				{% endif %}
+			{% endfor %}
+		</p>
+		{% endif %}
+		<time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("LLLL yyyy") }}</time>
+	</li>
+{% endfor %}
+</ol>
+
+<!-- The Navigation of Pagination -->
+{% set currentPageNumber = pagination.pageNumber + 1 %}
+{% set largestPageNumber = pagination.hrefs.length %}
+<p class="center-text">
+    {# from 1, ..., n-2 to n #}
+    {% if currentPageNumber  > 3 %}
+        <a class="pagination_nav" href="{{pagination.href.previous}}">1</a>
+        <span>&nbsp;...</span>
+    {% endif %}
+    {% if currentPageNumber  > 2 %}
+        <a class="pagination_nav" href="{{ pagination.hrefs[currentPageNumber - 3] }}">&nbsp;{{ currentPageNumber - 2 }}</a>
+    {% endif %}
+    {% if currentPageNumber  > 1 %}
+        <a class="pagination_nav" href="{{ pagination.hrefs[currentPageNumber - 2] }}">&nbsp;{{ currentPageNumber - 1 }}</a>
+    {% endif %}
+    <a class="pagination_nav current_page" href="{{ pagination.hrefs[currentPageNumber - 1] }}">&nbsp;{{ currentPageNumber }}</a>
+
+    {# from n+1, n+2, ..., and end #}
+    {% if currentPageNumber < largestPageNumber %}
+        <a class="pagination_nav" href="{{ pagination.hrefs[currentPageNumber] }}">&nbsp;{{ currentPageNumber + 1 }}</a>
+    {% endif %}
+    {% if currentPageNumber + 1  < largestPageNumber %}
+        <a class="pagination_nav" href="{{ pagination.hrefs[currentPageNumber + 1] }}">&nbsp;{{ currentPageNumber + 2 }}</a>
+    {% endif %}
+    {% if currentPageNumber + 2  < largestPageNumber %}
+        <span>&nbsp;...</span>
+        <a class="pagination_nav" href="{{ pagination.hrefs[largestPageNumber - 1] }}">&nbsp;{{ largestPageNumber }}</a>
+    {% endif %}
+</p>

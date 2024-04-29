@@ -1,8 +1,8 @@
 ---
-title: "Jhong's Pact"
-description: '日本語のホームページ'
+date: 2024-04-26
+tags:
+  - ja_feeds
 ---
-
 人生初のテックブログです。
 
 [Eleventy](https://www.11ty.dev/) を使って作りました、これからはどんどん投稿します！
