@@ -9,11 +9,6 @@ tags:
     - rtsp
     - stream
 ---
-<style>
-    pre {
-        background-color: #272822;
-    }
-</style>
 &emsp;&emsp;
 少し前に 2 年間楽に働ける職場から抜け出しました。自分が試してみたいプログラムがいくつかあったので、次の仕事を急いで探すことはありませんでした。ぬくぬくのんびりと暮らした生活を再び味わうと同時に、近視レーザー手術「パーク」もすぐに受けに行きました。パークの回復期間が本当に長いと言わざるを得ません。仕事と目の休養をどうやって同時にうまくやるのかを想像するだけで難しいと感じる。
 <p align="center" width="100%">
@@ -118,7 +113,7 @@ ffmpeg -rtsp_transport tcp -i rtsp://<account>:<password>@<NVRのLANアドレス
 ```
 &emsp;&emsp;
 そして、<a href="https://github.com/winshining/nginx-http-flv-module">nginxのnginx-http-flv-module</a> を通じてこの信号源を転送します：
-```
+```bash
 location /live {
     flv_live on;
     chunked_transfer_encoding on;

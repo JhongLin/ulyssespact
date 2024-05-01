@@ -1,4 +1,5 @@
 const { DateTime } = require("luxon");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 
 const {EleventyI18nPlugin} = require('@11ty/eleventy');
@@ -10,6 +11,7 @@ module.exports = function (eleventyConfig) {
 		"./public/": "/public/"
     });
 
+    eleventyConfig.addPlugin(syntaxHighlight);
 
     // CSS bundles are provided via the `eleventy-plugin-bundle` plugin:
     // 1. You can add to them using `{% css %}`

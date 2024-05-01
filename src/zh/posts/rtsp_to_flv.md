@@ -9,11 +9,6 @@ tags:
     - rtsp
     - stream
 ---
-<style>
-    pre {
-        background-color: #272822;
-    }
-</style>
 &emsp;&emsp;
 前一陣子從窩了 2 年的舒適圈跑了出來，因為有幾個自己想嘗試的專案，就不急著找下一份工作。  重溫自由空氣的同時，也馬上去做了近視雷射，不得不說 TPRK 的恢復期真的很長，很難想像如果在職時怎麼同時應付工作跟眼睛的休養。
 <p align="center" width="100%">
