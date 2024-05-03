@@ -8,7 +8,7 @@
 		{% if post.data.tags | length > 1 %}
 		<p class="postlist-tags">
 			{% for tag in post.data.tags %}
-				{% if tag != "ja_posts" or tag != "zh_posts" %}
+				{% if (tag != "ja_posts") and (tag != "zh_posts") %}
 					<!--{% if not loop.first %}{% endif %}-->
 					<span class="post-indivisual-tag">{{tag}}</span>
 				{% endif %}
