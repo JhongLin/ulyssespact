@@ -9,7 +9,7 @@ tags:
     - light-novel
     - clipper
 ---
-## 日本語に接触するのきっかけは何でしたか
+## 日本語に接触するのきっかけは何でしたか？
 
 <p align="center">
     <img width=50% src="https://static-resource.jhongwashere.com/oreimouto-comic-1.jpg">
