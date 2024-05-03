@@ -19,4 +19,5 @@
 
 .current_page {
     background-color: #5DADE2;
+    pointer-events: none;
 }
