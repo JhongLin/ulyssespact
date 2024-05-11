@@ -21,7 +21,7 @@
       </li>
       {% endfor %}
       <li>
-        {% for link in page.url | locale_links %}
+        {# {% for link in page.url | locale_links %}
             <a href="{{ link.url }}" lang="{{ link.lang }}" hreflang="{{ link.lang }}">
               {% if page.lang == 'ja' %}
                 切換至{{link.label}}模式
@@ -29,7 +29,16 @@
                 {{link.label}}で表す
               {% endif %}
             </a>
-        {% endfor %}
+        {% endfor %} #}
+        {% if page.lang == 'ja' %}
+          <a href="{{ page.url | replace("ja", "zh") }}" lang="{{ page.lang }}" hreflang="{{ page.lang }}">
+            切換至中文模式
+          </a>
+        {% elif page.lang == 'zh' %}
+          <a href="{{ page.url | replace("zh", "ja") }}" lang="{{ page.lang }}" hreflang="{{ page.lang }}">
+            日本語で表す
+          </a>
+        {% endif %}
       </li>
     </ul>
     <!-- The social media link -->
